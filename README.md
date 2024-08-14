@@ -1,5 +1,5 @@
 # Income Per Capita - ML Prediction
-
+This project aims to predict GDP for 2024 using historical data and a Random Forest model. It involves preparing and cleaning data, training the model, and making predictions. The results are compared with actual 2023 GDP values, and visualizations are created to highlight the top 10 countries by GDP in both years. The predictions are then saved to a CSV file for further analysis.
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Dataset](#dataset)
@@ -14,6 +14,9 @@
   - [Predict GDP for 2024](#predict-gdp-for-2024)
 
 ## Project Overview
+**Objective:** The project involves predicting the Gross Domestic Product (GDP) for the year 2024 using historical GDP data and a Random Forest Regressor model. The analysis compares the predicted GDP values with the actual GDP values for the year 2023 and visualizes the results to identify key trends and discrepancies.
+
+**Outcome:** The project provides insights into how GDP for different countries is expected to change in 2024 compared to 2023. It helps in understanding which countries are projected to experience significant changes in their economic performance and highlights the effectiveness of the predictive model.
 
 ## Dataset
 
