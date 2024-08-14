@@ -12,3 +12,4 @@
 
 ## Machine Learning Prediction
 ### Install Dependencies
+Set up the necessary libraries for data handling, visualization, and machine learning, specifically for tasks related to training and evaluating a Random Forest regression model.
