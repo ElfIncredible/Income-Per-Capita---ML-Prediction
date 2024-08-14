@@ -189,4 +189,62 @@ Prepare and clean a dataset by configuring display settings, loading the data, i
 
    ![image](https://github.com/user-attachments/assets/a42e6f36-5c73-4d81-a342-2830402279ea)
 
+   - In 1972, Kenya and South Africa had similar GDP per capita levels. Today, South Africa’s GDP per capita is nearly three times higher than Kenya’s. This disparity is due to South Africa’s effective economic policies, significant infrastructure investments, and economic diversification. In contrast, Kenya has faced challenges such as political instability, slower economic reforms, and reliance on agriculture, impacting its economic growth. Despite being in the same continent, these factors have led to divergent economic trajectories for the two countries.
+
+  5. Create a comparative line plot to visualize and analyze the GDP per capita trends for Kenya and Nigeria, helping to understand the economic performance of both countries over time.
+     ```
+     # Filter the data for Kenya and Nigeria
+    kenya_data = df.loc['Kenya']
+    nigeria_data = df.loc['Nigeria']
+
+    # Extract years and GDP per capita values
+    years = kenya_data.index
+    gdp_per_capita_kenya = kenya_data.values
+    gdp_per_capita_nigeria = nigeria_data.values
+
+    # Plotting
+    plt.figure(figsize=(20, 8))
+    plt.plot(years, gdp_per_capita_kenya, marker='o', linestyle='-', color='b', label='Kenya')
+    plt.plot(years, gdp_per_capita_nigeria, marker='o', linestyle='-', color='r', label='Nigeria')
+    plt.title('GDP Per Capita Comparison: Kenya vs Nigeria')
+    plt.xlabel('Year')
+    plt.ylabel('GDP Per Capita')
+    plt.xticks(rotation=45)
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+    ```
+
+  ![image](https://github.com/user-attachments/assets/6c68d2ab-580e-42c7-9607-bbe793add48a)
+
+6. Generate a line plot comparing the GDP per capita trends for Kenya and Uganda, providing a visual representation of their economic performance over time.
+   ```
+   # Filter the data for Kenya and Uganda
+    kenya_data = df.loc['Kenya']
+    uganda_data = df.loc['Uganda']
+
+    # Extract years and GDP per capita values
+    years = kenya_data.index
+    gdp_per_capita_kenya = kenya_data.values
+    gdp_per_capita_uganda = uganda_data.values
+
+    # Plotting
+    plt.figure(figsize=(20, 8))
+    plt.plot(years, gdp_per_capita_kenya, marker='o', linestyle='-', color='b', label='Kenya')
+    plt.plot(years, gdp_per_capita_uganda, marker='o', linestyle='-', color='r', label='Uganda')
+    plt.title('GDP Per Capita Comparison: Kenya vs Uganda')
+    plt.xlabel('Year')
+    plt.ylabel('GDP Per Capita')
+    plt.xticks(rotation=45)
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+   ```
+
+   ![image](https://github.com/user-attachments/assets/3f65228b-e419-408d-b6a6-33d09f7e10e6)
+
+7. 
+
    
