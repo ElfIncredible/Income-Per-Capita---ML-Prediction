@@ -14,12 +14,14 @@ This project aims to predict GDP for 2024 using historical data and a Random For
   - [Predict GDP for 2024](#predict-gdp-for-2024)
 
 ## Project Overview
-**Objective:** The project involves predicting the Gross Domestic Product (GDP) for the year 2024 using historical GDP data and a Random Forest Regressor model. The analysis compares the predicted GDP values with the actual GDP values for the year 2023 and visualizes the results to identify key trends and discrepancies.
+**Objective:** This project involves predicting the Gross Domestic Product (GDP) for the year 2024 using historical GDP data and a Random Forest Regressor model. The analysis compares the predicted GDP values with the actual GDP values for the year 2023 and visualizes the results to identify key trends and discrepancies.
 
-**Outcome:** The project provides insights into how GDP for different countries is expected to change in 2024 compared to 2023. It helps in understanding which countries are projected to experience significant changes in their economic performance and highlights the effectiveness of the predictive model.
+**Outcome:** This project provides insights into how GDP for different countries is expected to change in 2024 compared to 2023. It helps in understanding which countries are projected to experience significant changes in their economic performance and highlights the effectiveness of the predictive model.
 
 ## Dataset
+The dataset used in this project is sourced from the [World Bank](https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?end=2023&locations=KE-SG&start=1960&view=chart) and contains historical GDP per capita data from 1960 to 2023. This dataset provides annual GDP per capita figures for multiple countries. 
 
+The data is represented in current US dollars, offering a detailed view of economic performance over the decades. It is instrumental for analyzing economic growth trends, making predictions, and comparing economic conditions across different countries.
 ## Machine Learning Prediction
 ### Install Dependencies
 Set up the necessary libraries for data handling, visualization, and machine learning, specifically for tasks related to training and evaluating a Random Forest regression model.
