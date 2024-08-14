@@ -8,6 +8,8 @@
   - [Data Collection and Processing](#data-collection-and-processing)
   - [Exploratory Data Analysis](#exploratory-data-analysis)
   - [Separating features and target](#separating-features-and-target)
+  - [Model Training - Random Forest Regressor](#model-training---random-forest-regressor)
+  - [Make Predictions](#make-predictions)
 
 ## Project Overview
 
@@ -353,4 +355,21 @@ This splitting is essential for evaluating the performance of machine learning m
   print(X.shape, X_train.shape, X_test.shape)
 
   print(y.shape, y_train.shape, y_test.shape)
+  ```
+### Model Training - Random Forest Regressor
+- _Instantiation:_ Create a Random Forest Regressor model with 100 trees and a fixed random seed for reproducibility.
+- _Training:_ Fit the model to the training data, learning the relationship between the features and the target variable.
+After running this code, the Random Forest model is trained and ready to make predictions on new data or evaluate its performance using the test data.
+  ```
+  # Instantiate Random Forest Regressor
+  rfr = RandomForestRegressor(n_estimators=100, random_state=42)
+
+  rfr.fit(X_train, y_train)
+  ```
+### Make Predictions
+- _rfr.predict(X_test):_ Applies the trained Random Forest model to the test dataset to obtain predictions.
+- _y_pred:_ Stores the predicted GDP values for the test data, which can be used to evaluate the model's performance or for further analysis.
+This step is crucial for assessing how well the model generalizes to unseen data, as it provides the predicted outcomes that can be compared against the actual target values from the test set.
+  ```
+  y_pred = rfr.predict(X_test)
   ```
