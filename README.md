@@ -130,3 +130,34 @@ plt.show()
 ```
 
 ![image](https://github.com/user-attachments/assets/6541f4d0-bdca-4e4c-8f28-e82e5b3cdb01)
+
+  - In 1968, Kenya and Singapore had the same GDP per capita, reflecting similar economic conditions at that time. However, since then, Singapore has experienced extraordinary economic growth, leading to a GDP per capita that is now 40 times higher than Kenya's. This dramatic disparity could be attributed to Singapore's successful economic policies, strategic investments in technology and education, robust infrastructure development, and effective governance, which propelled its rapid economic advancement. In contrast, Kenya has faced various challenges, including political instability, slower economic reforms, and infrastructure limitations, which have impacted its economic growth trajectory.
+
+3.  Generate a line plot comparing the GDP per capita trends for Kenya and Malaysia, allowing for a visual comparison of their economic trajectories over the years.
+```
+# Filter the data for Kenya and Malaysia
+kenya_data = df.loc['Kenya']
+malaysia_data = df.loc['Malaysia']
+
+# Extract years and GDP per capita values
+years = kenya_data.index
+gdp_per_capita_kenya = kenya_data.values
+gdp_per_capita_malaysia = malaysia_data.values
+
+# Plotting
+plt.figure(figsize=(20, 8))
+plt.plot(years, gdp_per_capita_kenya, marker='o', linestyle='-', color='b', label='Kenya')
+plt.plot(years, gdp_per_capita_malaysia, marker='o', linestyle='-', color='r', label='Malaysia')
+plt.title('GDP Per Capita Comparison: Kenya vs Malaysia')
+plt.xlabel('Year')
+plt.ylabel('GDP Per Capita')
+plt.xticks(rotation=45)
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/42140045-a12f-4d76-8ff8-2b38545fb7be)
+
+  - Up until 1972, Kenya and Malaysia had similar GDP per capita levels. Since then, Malaysia has surged ahead, with its GDP per capita now nearly six times higher than Kenya's. This disparity likely results from Malaysia's strategic economic policies, including industrialization, investment in education, and infrastructure development, which fueled its rapid economic growth. In contrast, Kenya has faced challenges such as political instability and slower economic reforms, which have impacted its growth trajectory.
