@@ -103,3 +103,30 @@ plt.show()
 ```
 
 ![image](https://github.com/user-attachments/assets/cead41d7-b6dd-45e9-aefb-e39677cd0069)
+
+2. Generate a line plot comparing the GDP per capita trends for Kenya and Singapore over time.
+```
+# Filter the data for Kenya and Singapore
+kenya_data = df.loc['Kenya']
+singapore_data = df.loc['Singapore']
+
+# Extract years and GDP per capita values
+years = kenya_data.index
+gdp_per_capita_kenya = kenya_data.values
+gdp_per_capita_singapore = singapore_data.values
+
+# Plotting
+plt.figure(figsize=(20, 8))
+plt.plot(years, gdp_per_capita_kenya, marker='o', linestyle='-', color='b', label='Kenya')
+plt.plot(years, gdp_per_capita_singapore, marker='o', linestyle='-', color='r', label='Singapore')
+plt.title('GDP Per Capita Comparison: Kenya vs Singapore')
+plt.xlabel('Year')
+plt.ylabel('GDP Per Capita')
+plt.xticks(rotation=45)
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/6541f4d0-bdca-4e4c-8f28-e82e5b3cdb01)
