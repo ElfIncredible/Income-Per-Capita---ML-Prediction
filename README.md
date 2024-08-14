@@ -194,26 +194,26 @@ Prepare and clean a dataset by configuring display settings, loading the data, i
   5. Create a comparative line plot to visualize and analyze the GDP per capita trends for Kenya and Nigeria, helping to understand the economic performance of both countries over time.
      ```
      # Filter the data for Kenya and Nigeria
-    kenya_data = df.loc['Kenya']
-    nigeria_data = df.loc['Nigeria']
+     kenya_data = df.loc['Kenya']
+     nigeria_data = df.loc['Nigeria']
 
-    # Extract years and GDP per capita values
-    years = kenya_data.index
-    gdp_per_capita_kenya = kenya_data.values
-    gdp_per_capita_nigeria = nigeria_data.values
+     # Extract years and GDP per capita values
+     years = kenya_data.index
+     gdp_per_capita_kenya = kenya_data.values
+     gdp_per_capita_nigeria = nigeria_data.values
 
-    # Plotting
-    plt.figure(figsize=(20, 8))
-    plt.plot(years, gdp_per_capita_kenya, marker='o', linestyle='-', color='b', label='Kenya')
-    plt.plot(years, gdp_per_capita_nigeria, marker='o', linestyle='-', color='r', label='Nigeria')
-    plt.title('GDP Per Capita Comparison: Kenya vs Nigeria')
-    plt.xlabel('Year')
-    plt.ylabel('GDP Per Capita')
-    plt.xticks(rotation=45)
-    plt.legend()
-    plt.grid(True)
-    plt.tight_layout()
-    plt.show()
+     # Plotting
+     plt.figure(figsize=(20, 8))
+     plt.plot(years, gdp_per_capita_kenya, marker='o', linestyle='-', color='b', label='Kenya')
+     plt.plot(years, gdp_per_capita_nigeria, marker='o', linestyle='-', color='r', label='Nigeria')
+     plt.title('GDP Per Capita Comparison: Kenya vs Nigeria')
+     plt.xlabel('Year')
+     plt.ylabel('GDP Per Capita')
+     plt.xticks(rotation=45)
+     plt.legend()
+     plt.grid(True)
+     plt.tight_layout()
+     plt.show()
     ```
 
   ![image](https://github.com/user-attachments/assets/6c68d2ab-580e-42c7-9607-bbe793add48a)
@@ -245,6 +245,57 @@ Prepare and clean a dataset by configuring display settings, loading the data, i
 
    ![image](https://github.com/user-attachments/assets/3f65228b-e419-408d-b6a6-33d09f7e10e6)
 
-7. 
+7. Create a bar chart showing the top 10 countries with the highest GDP for 2023, making it easy to compare their economic standings.
+   ```
+   # Ensure 'Country Name' is the index and extract the GDP values for 2023
+    gdp_2023 = df.loc[:, '2023']
+
+    # Find the top N countries with the highest GDP
+    top_n = 10  # You can adjust this value to get more or fewer countries
+    top_countries = gdp_2023.nlargest(top_n)
+
+    # Plotting
+    plt.figure(figsize=(12, 8))
+    top_countries.plot(kind='bar', color='skyblue')
+    plt.title(f'Top {top_n} Countries by GDP in 2023')
+    plt.xlabel('Country')
+    plt.ylabel('GDP')
+    plt.xticks(rotation=45)
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    plt.show()
+   ```
+
+   ![image](https://github.com/user-attachments/assets/aaa8e87e-7c2c-474c-b824-a10338bdd894)
+
+8. Generate a line plot comparing the GDP trends of the top 10 countries over the past 10 years, providing insights into how these leading economies have evolved over the recent decade.
+   ```
+   # Extract the last 10 years of data
+   years = df.columns[-10:]  # Last 10 years
+   gdp_last_10_years = df[years]
+
+   # Find the top 10 countries based on GDP in the most recent year (latest year)
+   latest_year = years[-1]
+   top_10_countries = gdp_last_10_years[latest_year].nlargest(10).index
+
+   # Filter the GDP data for these top 10 countries over the last 10 years
+   top_10_gdp_last_10_years = gdp_last_10_years.loc[top_10_countries]
+
+   # Plotting
+    plt.figure(figsize=(14, 8))
+
+    for country in top_10_countries:
+        plt.plot(years, top_10_gdp_last_10_years.loc[country], marker='o', label=country)
+
+    plt.title('Top 10 Countries GDP over the Last 10 Years')
+    plt.xlabel('Year')
+    plt.ylabel('GDP')
+    plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+    plt.xticks(rotation=45)
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+   ```
+   ![image](https://github.com/user-attachments/assets/a7faca00-c29f-47d6-9147-6acfe851ca85)
 
    
