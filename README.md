@@ -7,6 +7,7 @@
   - [Install Dependencies](#install-dependencies)
   - [Data Collection and Processing](#data-collection-and-processing)
   - [Exploratory Data Analysis](#exploratory-data-analysis)
+  - [Separating features and target](#separating-features-and-target)
 
 ## Project Overview
 
@@ -214,7 +215,7 @@ Prepare and clean a dataset by configuring display settings, loading the data, i
      plt.grid(True)
      plt.tight_layout()
      plt.show()
-    ```
+     ```
 
   ![image](https://github.com/user-attachments/assets/6c68d2ab-580e-42c7-9607-bbe793add48a)
 
@@ -329,3 +330,27 @@ Prepare and clean a dataset by configuring display settings, loading the data, i
 
     ![image](https://github.com/user-attachments/assets/8ad9d9df-5376-4d9f-9279-4192b94b35ab)
    
+### Separating features and target
+Separate the dataset into X (features) and y (target). 
+- X includes all columns except the one for GDP in 2023
+- y contains the GDP values for 2023.
+  This separation is crucial for training and evaluating machine learning models, where X is used to predict y.
+
+ - Handle missing data by removing any rows in X with NaN values and ensuring that y is adjusted accordingly. This ensures that both X and y are free from missing values and aligned, which is essential for training machine learning models.
+  ```
+  # Define features X as all columns except '2023' (which is the target variable) and target y as the '2023' column (GDP for 2023)
+  X = df.drop(columns=['2023'])
+  y = df['2023']
+  ```
+### Splitting data into Train and Test data
+- _train_test_split:_ Splits the data into training and testing sets with an 80-20 ratio.
+- _print(X.shape, X_train.shape, X_test.shape):_ Shows the dimensions of the original and split features DataFrames.
+- _print(y.shape, y_train.shape, y_test.shape):_ Shows the dimensions of the original and split target variables.
+This splitting is essential for evaluating the performance of machine learning models, as it allows you to train the model on one subset of the data and test it on a separate subset.
+  ```
+  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
+
+  print(X.shape, X_train.shape, X_test.shape)
+
+  print(y.shape, y_train.shape, y_test.shape)
+  ```
