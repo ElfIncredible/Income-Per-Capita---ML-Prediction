@@ -10,6 +10,8 @@
   - [Separating features and target](#separating-features-and-target)
   - [Model Training - Random Forest Regressor](#model-training---random-forest-regressor)
   - [Make Predictions](#make-predictions)
+  - [Model Evaluation - Mean Squared Error](#model-evaluation---mean-squared-error)
+  - [Predict GDP for 2024](#predict-gdp-for-2024)
 
 ## Project Overview
 
@@ -373,3 +375,39 @@ This step is crucial for assessing how well the model generalizes to unseen data
   ```
   y_pred = rfr.predict(X_test)
   ```
+### Model Evaluation - Mean Squared Error
+- _MSE Calculation:_ Computes the average squared difference between actual and predicted values, providing a measure of prediction error.
+- _Printing MSE:_ Outputs the MSE value to assess the performance of the Random Forest model. A lower MSE indicates better model performance, as it reflects smaller discrepancies between predicted and actual values.
+  ```
+  mse = mean_squared_error(y_test, y_pred)
+  print(f'Mean Squared Error: {mse}')
+  ```
+### Predict GDP for 2024
+- _Data Preparation:_ Filters and aligns data to match the features used in the model.
+- _Prediction:_ Uses the trained Random Forest model to predict GDP for 2024.
+- _Add Original Data:_ Includes 2023 GDP values for comparison.
+- _Column Sorting:_ Orders columns alphabetically for consistency.
+- _Save to CSV:_ Exports the processed data with predictions to a CSV file for further use or analysis.
+  ```
+  df_latest = df.loc[:, '1960':]  # Use data from 1960 onwards
+  df_latest = df_latest[X.columns]  # Match columns with training features
+  df_latest = df_latest.dropna()
+  df_latest['Predicted_GDP_2024'] = rfr.predict(df_latest)
+
+  # Add the original 2023 values to df_latest
+  df_latest['2023'] = df['2023'].loc[df_latest.index]
+
+  # Sort columns alphabetically
+  sorted_cols = sorted(df_latest.columns)
+  df_latest = df_latest[sorted_cols]
+
+  df_latest.head()
+
+  # Save predictions to CSV
+  df_latest.to_csv('gdp_predictions_2024.csv', index=True)
+  ```
+
+
+
+
+
