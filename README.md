@@ -296,6 +296,36 @@ Prepare and clean a dataset by configuring display settings, loading the data, i
     plt.tight_layout()
     plt.show()
    ```
+
    ![image](https://github.com/user-attachments/assets/a7faca00-c29f-47d6-9147-6acfe851ca85)
 
+9. Visualize global GDP data for 2023 on a world map, highlighting differences in GDP across countries using color gradients. Countries with missing GDP data are shown in light grey.
+    ```
+    # Load the shapefile with country geometries
+    world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+
+    # Ensure 'Country Name' is the index or adjust according to your data
+    # Extract GDP for 2023 and create a dataframe
+    gdp_2023 = df[['2023']].reset_index()
+    gdp_2023.columns = ['Country Name', 'GDP 2023']
+
+    # Merge the GDP data with the world geometries
+    world = world.merge(gdp_2023, how='left', left_on='name', right_on='Country Name')
+
+    # Plotting
+    fig, ax = plt.subplots(1, 1, figsize=(15, 10))
+    world.boundary.plot(ax=ax)
+    world.plot(column='GDP 2023', ax=ax, legend=True,
+               legend_kwds={'label': "GDP in 2023 by Country",
+                            'orientation': "horizontal"},
+               cmap='OrRd', missing_kwds={"color": "lightgrey"})
+
+    plt.title('World GDP by Country for 2023')
+    plt.xlabel('Longitude')
+    plt.ylabel('Latitude')
+    plt.tight_layout()
+    plt.show()
+    ```
+
+    ![image](https://github.com/user-attachments/assets/8ad9d9df-5376-4d9f-9279-4192b94b35ab)
    
