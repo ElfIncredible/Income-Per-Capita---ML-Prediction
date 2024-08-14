@@ -406,7 +406,47 @@ This step is crucial for assessing how well the model generalizes to unseen data
   # Save predictions to CSV
   df_latest.to_csv('gdp_predictions_2024.csv', index=True)
   ```
+### Visualization
+- _Data Extraction:_ Retrieves and identifies the top 10 countries based on GDP for 2023 and predicted GDP for 2024.
+- _Comparison DataFrame:_ Creates a DataFrame to facilitate comparison between actual and predicted GDP values.
+- _Plotting:_ Visualizes the comparison using a bar chart, with different colors for actual and predicted GDP values.
+  ```
+  # Extract GDP values for 2023 and predicted GDP values for 2024
+  gdp_2023 = df_latest['2023']
+  predicted_gdp_2024 = df_latest['Predicted_GDP_2024']  # Assuming this column contains predicted GDP values for 2024
 
+  # Find the top 10 countries with the highest GDP in 2023
+  top_10_2023 = gdp_2023.nlargest(10)
+
+  # Find the top 10 countries with the highest predicted GDP in 2024
+  top_10_predicted_2024 = predicted_gdp_2024.nlargest(10)
+
+  # Create a combined DataFrame for comparison
+  comparison_df = pd.DataFrame({
+      'Country': top_10_2023.index,
+      'GDP 2023': top_10_2023.values,
+      'Predicted GDP 2024': top_10_predicted_2024.reindex(top_10_2023.index, fill_value=0).values
+  })
+
+  # Plotting
+  fig, ax = plt.subplots(figsize=(14, 8))
+
+  # Plot for GDP in 2023
+  comparison_df.plot(kind='bar', x='Country', y='GDP 2023', ax=ax, color='skyblue', label='GDP 2023')
+
+  # Plot for predicted GDP in 2024
+  comparison_df.plot(kind='bar', x='Country', y='Predicted GDP 2024', ax=ax, color='salmon', label='Predicted GDP 2024', alpha=0.7)
+
+  plt.title('Top 10 Countries: GDP in 2023 vs Predicted GDP in 2024')
+  plt.xlabel('Country')
+  plt.ylabel('GDP')
+  plt.xticks(rotation=45)
+  plt.legend()
+  plt.grid(axis='y', linestyle='--', alpha=0.7)
+  plt.tight_layout()
+  plt.show()
+
+![image](https://github.com/user-attachments/assets/455cc323-679c-4bbc-8030-cb18640fb2a5)
 
 
 
