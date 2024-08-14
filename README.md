@@ -406,6 +406,9 @@ This step is crucial for assessing how well the model generalizes to unseen data
   # Save predictions to CSV
   df_latest.to_csv('gdp_predictions_2024.csv', index=True)
   ```
+
+  ![image](https://github.com/user-attachments/assets/4936e551-e817-476f-b1a8-00aa7a84f4fe)
+
 ### Visualization
 - _Data Extraction:_ Retrieves and identifies the top 10 countries based on GDP for 2023 and predicted GDP for 2024.
 - _Comparison DataFrame:_ Creates a DataFrame to facilitate comparison between actual and predicted GDP values.
@@ -446,7 +449,7 @@ This step is crucial for assessing how well the model generalizes to unseen data
   plt.tight_layout()
   plt.show()
 
-![image](https://github.com/user-attachments/assets/455cc323-679c-4bbc-8030-cb18640fb2a5)
+ ![image](https://github.com/user-attachments/assets/455cc323-679c-4bbc-8030-cb18640fb2a5)
 
 
 
