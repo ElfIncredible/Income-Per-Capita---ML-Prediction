@@ -6,6 +6,7 @@
 - [Machine Learning Prediction](#achine-learning-prediction)
   - [Install Dependencies](#install-dependencies)
   - [Data Collection and Processing](#data-collection-and-processing)
+  - [Exploratory Data Analysis](#exploratory-data-analysis)
 
 ## Project Overview
 
@@ -77,3 +78,28 @@ Prepare and clean a dataset by configuring display settings, loading the data, i
       ```
       df = df.bfill(axis=1)
       ```
+### Exploratory Data Analysis
+1. Visualize the GDP per capita data for Kenya as a line plot, showing how it changes over the years.
+```
+# Plot GDP per capita for Kenya
+
+# Ensure 'Country Name' is the index and use .loc to select Kenya's data
+kenya_data = df.loc['Kenya']
+
+# Extract years and GDP per capita values
+years = kenya_data.index
+gdp_per_capita = kenya_data.values
+
+# Plotting
+plt.figure(figsize=(20, 8))
+plt.plot(years, gdp_per_capita, marker='o', linestyle='-', color='b')
+plt.title('GDP Per Capita for Kenya')
+plt.xlabel('Year')
+plt.ylabel('GDP Per Capita')
+plt.xticks(rotation=45)
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/cead41d7-b6dd-45e9-aefb-e39677cd0069)
