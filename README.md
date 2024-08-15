@@ -421,7 +421,7 @@ This step is crucial for assessing how well the model generalizes to unseen data
   ```
   # Extract GDP values for 2023 and predicted GDP values for 2024
   gdp_2023 = df_latest['2023']
-  predicted_gdp_2024 = df_latest['Predicted_GDP_2024']  # Assuming this column contains predicted GDP values for 2024
+  predicted_gdp_2024 = df_latest['Predicted_GDP_2024']  # this column contains predicted GDP values for 2024
 
   # Find the top 10 countries with the highest GDP in 2023
   top_10_2023 = gdp_2023.nlargest(10)
