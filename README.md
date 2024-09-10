@@ -3,7 +3,7 @@ This project aims to predict GDP for 2024 using historical data and a Random For
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Dataset](#dataset)
-- [Machine Learning Prediction](#achine-learning-prediction)
+- [Machine Learning Prediction](#machine-learning-prediction)
   - [Install Dependencies](#install-dependencies)
   - [Data Collection and Processing](#data-collection-and-processing)
   - [Exploratory Data Analysis](#exploratory-data-analysis)
